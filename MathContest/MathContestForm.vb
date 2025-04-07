@@ -1,18 +1,21 @@
-﻿Option Strict On
-Option Explicit On
-Option Compare Text
-'Malachi Marlow
+﻿'Malachi Marlow
 'Spring 2025
 'RCET2265
 'MathContest
 'https://github.com/MalachiMarlow/MathContest.git
 
+Option Strict On
+Option Explicit On
+Option Compare Text
+
+
 Imports System.Net.Security
 Imports System.Security.Cryptography
 
 Public Class MathContestForm
-
-
+    ''' <summary>
+    ''' Sets the default function for each text box and button.
+    ''' </summary>
     Sub SetDefaults()
         NameTextBox.Text = " "
         AgeTextBox.Text = ""
@@ -45,7 +48,10 @@ Public Class MathContestForm
         End If
     End Sub
 
-    'Checks if the student is 
+    ''' <summary>
+    ''' Checks if the student is between age of 7 & 11, and that grade is between 1 & 4
+    ''' </summary>
+    ''' <returns></returns>
     Function CheckValid() As Boolean
         Dim valid As Boolean = True
         Dim message As String
@@ -131,7 +137,9 @@ Public Class MathContestForm
 
         Return _divide
     End Function
-
+    ''' <summary>
+    ''' Calculates the functions for each math button. ex, Addition, subtraction, ect. If wrong, displays an incorrect message.
+    ''' </summary>
     Sub MathTime()
         If AddRadioButton.Checked Then
             Try
@@ -187,7 +195,12 @@ Public Class MathContestForm
             End Try
         End If
     End Sub
-
+    ''' <summary>
+    ''' Generates a random number
+    ''' </summary>
+    ''' <param name="min"></param>
+    ''' <param name="max"></param>
+    ''' <returns></returns>
     Function RandomNumberGenerator(min As Integer, max As Integer) As Integer
         Randomize()
         Return CInt(Math.Ceiling(max - min) * Rnd() + min)
