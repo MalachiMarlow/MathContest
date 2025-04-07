@@ -7,6 +7,7 @@ Option Compare Text
 'MathContest
 'https://github.com/MalachiMarlow/MathContest.git
 
+Imports System.Net.Security
 Imports System.Security.Cryptography
 
 Public Class MathContestForm
@@ -17,8 +18,15 @@ Public Class MathContestForm
         AgeTextBox.Text = ""
         GradeTextBox.Text = ""
         StudentAnswerTextBox.Text = ""
-        StudentAnswerTextBox.Enabled = ""
+        StudentAnswerTextBox.Enabled = False
         FirstNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+        SecondNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+        MathTypeGroupBox.Enabled = False
+        SubmitButton.Enabled = False
+        SummaryButton.Enabled = False
+        AddRadioButton.Checked = True
+        ScoreCounter(True, True)
+        AttemptCounter(True, True)
 
     End Sub
 
@@ -32,10 +40,12 @@ Public Class MathContestForm
             Else
                 MathTime()
             End If
-            FirstNumberTextBox.Text = CStr()
+            FirstNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+            SecondNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
         End If
     End Sub
 
+    'Checks if the student is 
     Function CheckValid() As Boolean
         Dim valid As Boolean = True
         Dim message As String
@@ -49,11 +59,11 @@ Public Class MathContestForm
         Try
             If CInt(AgeTextBox.Text) < 7 Then
                 valid = False
-                message &= "Student is not eligible to compete" & vbNewLine
+                message &= "Student not eligible to compete" & vbNewLine
                 AgeTextBox.Focus()
             ElseIf CInt(AgeTextBox.Text) > 11 Then
                 valid = False
-                message &= "Student is not eligible to compete" & vbNewLine
+                message &= "Student not eligible to compete" & vbNewLine
                 AgeTextBox.Focus()
             End If
         Catch ex As Exception
@@ -125,12 +135,55 @@ Public Class MathContestForm
     Sub MathTime()
         If AddRadioButton.Checked Then
             Try
-                If CInt(StudentAnswerTextBox.Text) = Add() Then
+                If CInt(StudentAnswerTextBox.Text) = add() Then
                     MsgBox("Correct")
-                    ScoreC
+                    ScoreCounter()
+                Else
+                    MsgBox($"Incorrect, answer was {add()}")
                 End If
+                AttemptCounter()
             Catch ex As Exception
-
+                MsgBox("Please enter a numeric value.")
+                StudentAnswerTextBox.Focus()
+            End Try
+        ElseIf SubtractRadioButton.Focus Then
+            Try
+                If CInt(StudentAnswerTextBox.Text) = subtract() Then
+                    MsgBox("Correct")
+                    ScoreCounter()
+                Else
+                    MsgBox($"Incorrect, answer was {subtract()}")
+                End If
+                AttemptCounter()
+            Catch ex As Exception
+                MsgBox("Please enter a numeric value")
+                StudentAnswerTextBox.Focus()
+            End Try
+        ElseIf MultiplyRadioButton.Checked Then
+            Try
+                If CInt(StudentAnswerTextBox.Text) = multiply() Then
+                    MsgBox("Correct")
+                    ScoreCounter()
+                Else
+                    MsgBox($"Incorrect, answer was {multiply()}")
+                End If
+                AttemptCounter()
+            Catch ex As Exception
+                MsgBox("Please enter a numeric value")
+                StudentAnswerTextBox.Focus()
+            End Try
+        ElseIf DivideRadioButton.Checked Then
+            Try
+                If CInt(StudentAnswerTextBox.Text) = divide() Then
+                    MsgBox("Correct")
+                    ScoreCounter()
+                Else
+                    MsgBox($"Incorrect, answer was {divide()}")
+                End If
+                AttemptCounter()
+            Catch ex As Exception
+                MsgBox("Please enter a numeric value")
+                StudentAnswerTextBox.Focus()
             End Try
         End If
     End Sub
@@ -139,5 +192,75 @@ Public Class MathContestForm
         Randomize()
         Return CInt(Math.Ceiling(max - min) * Rnd() + min)
     End Function
+
+    Function ScoreCounter(Optional clear As Boolean = False, Optional reference As Boolean = False) As Integer
+        Static _scoreCounter As Integer
+
+        If clear = False And reference = False Then
+            _scoreCounter += 1
+        ElseIf clear = True Then
+            _scoreCounter = 0
+        End If
+        Return _scoreCounter
+    End Function
+
+    Function AttemptCounter(Optional clear As Boolean = False, Optional reference As Boolean = False) As Integer
+        Static _attemptCounter As Integer
+        If _attemptCounter >= 1 Then
+            SummaryButton.Enabled = True
+        End If
+
+        If clear = False And reference = False Then
+            _attemptCounter += 1
+        ElseIf clear = True Then
+            _attemptCounter = 0
+        End If
+
+        Return _attemptCounter
+    End Function
+
+    Private Sub MathContestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SetDefaults()
+    End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        SetDefaults()
+    End Sub
+
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Me.Close()
+    End Sub
+
+    Private Sub NameTextBox_TextChanged(sender As Object, e As EventArgs) Handles NameTextBox.TextChanged
+        SubmitButton.Enabled = True
+    End Sub
+
+    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
+        Dim currentCorrect As Integer = ScoreCounter(, True)
+        Dim currentAttemps As Integer = AttemptCounter(, True)
+
+        MsgBox($"{NameTextBox.Text} has gotten {currentCorrect} out of {currentAttemps}")
+    End Sub
+
+    Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged
+        FirstNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+        SecondNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+    End Sub
+
+    Private Sub SubtractRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles SubtractRadioButton.CheckedChanged
+        FirstNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+        SecondNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+    End Sub
+
+    Private Sub MultiplyRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles MultiplyRadioButton.CheckedChanged
+        FirstNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+        SecondNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+    End Sub
+
+    Private Sub DivideRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DivideRadioButton.CheckedChanged
+        FirstNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+        SecondNumberTextBox.Text = CStr(RandomNumberGenerator(0, 100))
+    End Sub
+
 
 End Class
