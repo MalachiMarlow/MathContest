@@ -24,18 +24,18 @@ Partial Class MathContestForm
     Private Sub InitializeComponent()
         Me.StudentInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.GradeLabel = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.GradeTextBox = New System.Windows.Forms.TextBox()
+        Me.AgeTextBox = New System.Windows.Forms.TextBox()
         Me.AgeLabel = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.NameTextBox = New System.Windows.Forms.TextBox()
         Me.NameLabel = New System.Windows.Forms.Label()
         Me.CurrentMathGroupBox = New System.Windows.Forms.GroupBox()
         Me.StudentAnswerLabel = New System.Windows.Forms.Label()
         Me.SecondNumberLabel = New System.Windows.Forms.Label()
         Me.FirstNumberLabel = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.StudentAnswerTextBox = New System.Windows.Forms.TextBox()
+        Me.SecondNumberTextBox = New System.Windows.Forms.TextBox()
+        Me.FirstNumberTextBox = New System.Windows.Forms.TextBox()
         Me.MathTypeGroupBox = New System.Windows.Forms.GroupBox()
         Me.DivideRadioButton = New System.Windows.Forms.RadioButton()
         Me.MultiplyRadioButton = New System.Windows.Forms.RadioButton()
@@ -55,10 +55,10 @@ Partial Class MathContestForm
         'StudentInfoGroupBox
         '
         Me.StudentInfoGroupBox.Controls.Add(Me.GradeLabel)
-        Me.StudentInfoGroupBox.Controls.Add(Me.TextBox3)
-        Me.StudentInfoGroupBox.Controls.Add(Me.TextBox2)
+        Me.StudentInfoGroupBox.Controls.Add(Me.GradeTextBox)
+        Me.StudentInfoGroupBox.Controls.Add(Me.AgeTextBox)
         Me.StudentInfoGroupBox.Controls.Add(Me.AgeLabel)
-        Me.StudentInfoGroupBox.Controls.Add(Me.TextBox1)
+        Me.StudentInfoGroupBox.Controls.Add(Me.NameTextBox)
         Me.StudentInfoGroupBox.Controls.Add(Me.NameLabel)
         Me.StudentInfoGroupBox.Location = New System.Drawing.Point(22, 10)
         Me.StudentInfoGroupBox.Name = "StudentInfoGroupBox"
@@ -76,19 +76,19 @@ Partial Class MathContestForm
         Me.GradeLabel.TabIndex = 7
         Me.GradeLabel.Text = "Grade"
         '
-        'TextBox3
+        'GradeTextBox
         '
-        Me.TextBox3.Location = New System.Drawing.Point(350, 92)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox3.TabIndex = 6
+        Me.GradeTextBox.Location = New System.Drawing.Point(350, 92)
+        Me.GradeTextBox.Name = "GradeTextBox"
+        Me.GradeTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.GradeTextBox.TabIndex = 6
         '
-        'TextBox2
+        'AgeTextBox
         '
-        Me.TextBox2.Location = New System.Drawing.Point(197, 92)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox2.TabIndex = 5
+        Me.AgeTextBox.Location = New System.Drawing.Point(197, 92)
+        Me.AgeTextBox.Name = "AgeTextBox"
+        Me.AgeTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.AgeTextBox.TabIndex = 5
         '
         'AgeLabel
         '
@@ -99,12 +99,12 @@ Partial Class MathContestForm
         Me.AgeLabel.TabIndex = 4
         Me.AgeLabel.Text = "Age"
         '
-        'TextBox1
+        'NameTextBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(6, 92)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox1.TabIndex = 2
+        Me.NameTextBox.Location = New System.Drawing.Point(6, 92)
+        Me.NameTextBox.Name = "NameTextBox"
+        Me.NameTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.NameTextBox.TabIndex = 2
         '
         'NameLabel
         '
@@ -121,9 +121,9 @@ Partial Class MathContestForm
         Me.CurrentMathGroupBox.Controls.Add(Me.StudentAnswerLabel)
         Me.CurrentMathGroupBox.Controls.Add(Me.SecondNumberLabel)
         Me.CurrentMathGroupBox.Controls.Add(Me.FirstNumberLabel)
-        Me.CurrentMathGroupBox.Controls.Add(Me.TextBox6)
-        Me.CurrentMathGroupBox.Controls.Add(Me.TextBox5)
-        Me.CurrentMathGroupBox.Controls.Add(Me.TextBox4)
+        Me.CurrentMathGroupBox.Controls.Add(Me.StudentAnswerTextBox)
+        Me.CurrentMathGroupBox.Controls.Add(Me.SecondNumberTextBox)
+        Me.CurrentMathGroupBox.Controls.Add(Me.FirstNumberTextBox)
         Me.CurrentMathGroupBox.Location = New System.Drawing.Point(22, 160)
         Me.CurrentMathGroupBox.Name = "CurrentMathGroupBox"
         Me.CurrentMathGroupBox.Size = New System.Drawing.Size(276, 245)
@@ -158,26 +158,26 @@ Partial Class MathContestForm
         Me.FirstNumberLabel.TabIndex = 8
         Me.FirstNumberLabel.Text = "First Number"
         '
-        'TextBox6
+        'StudentAnswerTextBox
         '
-        Me.TextBox6.Location = New System.Drawing.Point(39, 169)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox6.TabIndex = 10
+        Me.StudentAnswerTextBox.Location = New System.Drawing.Point(39, 169)
+        Me.StudentAnswerTextBox.Name = "StudentAnswerTextBox"
+        Me.StudentAnswerTextBox.Size = New System.Drawing.Size(149, 22)
+        Me.StudentAnswerTextBox.TabIndex = 10
         '
-        'TextBox5
+        'SecondNumberTextBox
         '
-        Me.TextBox5.Location = New System.Drawing.Point(39, 110)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox5.TabIndex = 9
+        Me.SecondNumberTextBox.Location = New System.Drawing.Point(39, 110)
+        Me.SecondNumberTextBox.Name = "SecondNumberTextBox"
+        Me.SecondNumberTextBox.Size = New System.Drawing.Size(149, 22)
+        Me.SecondNumberTextBox.TabIndex = 9
         '
-        'TextBox4
+        'FirstNumberTextBox
         '
-        Me.TextBox4.Location = New System.Drawing.Point(39, 47)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox4.TabIndex = 8
+        Me.FirstNumberTextBox.Location = New System.Drawing.Point(39, 47)
+        Me.FirstNumberTextBox.Name = "FirstNumberTextBox"
+        Me.FirstNumberTextBox.Size = New System.Drawing.Size(149, 22)
+        Me.FirstNumberTextBox.TabIndex = 8
         '
         'MathTypeGroupBox
         '
@@ -308,20 +308,20 @@ Partial Class MathContestForm
 
     Friend WithEvents StudentInfoGroupBox As GroupBox
     Friend WithEvents CurrentMathGroupBox As GroupBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents NameTextBox As TextBox
     Friend WithEvents NameLabel As Label
     Friend WithEvents MathTypeGroupBox As GroupBox
     Friend WithEvents ButtonsGroupBox As GroupBox
     Friend WithEvents GradeLabel As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents GradeTextBox As TextBox
+    Friend WithEvents AgeTextBox As TextBox
     Friend WithEvents AgeLabel As Label
     Friend WithEvents StudentAnswerLabel As Label
     Friend WithEvents SecondNumberLabel As Label
     Friend WithEvents FirstNumberLabel As Label
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents StudentAnswerTextBox As TextBox
+    Friend WithEvents SecondNumberTextBox As TextBox
+    Friend WithEvents FirstNumberTextBox As TextBox
     Friend WithEvents DivideRadioButton As RadioButton
     Friend WithEvents MultiplyRadioButton As RadioButton
     Friend WithEvents SubtractRadioButton As RadioButton
